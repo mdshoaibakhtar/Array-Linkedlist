@@ -28,7 +28,7 @@ int main()
     printf("Creation Successfully...............\n");
     TraversalOfArray(arr,size);
     return 0;
-}*/
+}
 
 #include <stdio.h>
 //Enter Data From Here
@@ -62,6 +62,17 @@ void Insertion(int arr[], int size, int index, int data)
     arr[index]=data;
 }
 
+void deletion(int arr[],int size,int index)
+{
+    printf("Enter The Index Which you Want To Delete\n");
+    scanf("%d", &index);
+    for (int i = index; i < size-1; i++)
+    {
+        arr[i] = arr[i+1];
+    }
+    
+}
+
 int main()
 {
     int arr[100], size, data, index;
@@ -71,10 +82,58 @@ int main()
     printf("Creation Successfully...............\n");
     TraversalOfArray(arr, size);
 
+    // printf("\n");
+    // Insertion(arr, size, index, data);
+    // size += 1;
+    // TraversalOfArray(arr, size);
+
     printf("\n");
-    Insertion(arr, size, index, data);
-    size += 1;
+    deletion(arr, size, index);
+    size -= 1;
     TraversalOfArray(arr, size);
 
     return 0;
+}
+*/
+
+#include <stdio.h>
+
+void arraytraversal(int arr[], int size)
+{
+    for (int i = 0; i < size - 1; i++)
+    {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+}
+//Iterative Method To Reverse The Array
+int arrayreverse(int arr[], int start , int end)
+{
+    int temp;
+    while (start < end)
+    {
+        temp=arr[start];
+        arr[start]=arr[end];
+        arr[end]=temp;
+        start++;
+        end--;
+    }
+}
+int reverse_rec(int arr[],int min[],int max)
+{
+    min=max=arr[0];
+    if (min[])
+    {
+        /* code */
+    }
+    
+
+}
+int main()
+{
+    int arr[] = {10, 20, 30,40, 50};
+    int size = sizeof(arr) / sizeof(arr[0]);
+    arraytraversal(arr,size);
+    arrayreverse(arr,0,size-1);
+    arraytraversal(arr,size);
 }
