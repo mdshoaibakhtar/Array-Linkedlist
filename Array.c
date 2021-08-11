@@ -100,40 +100,48 @@ int main()
 
 void arraytraversal(int arr[], int size)
 {
-    for (int i = 0; i < size - 1; i++)
+    for (int i = 0; i < size; i++)
     {
         printf("%d ", arr[i]);
     }
     printf("\n");
 }
 //Iterative Method To Reverse The Array
-int arrayreverse(int arr[], int start , int end)
+int arrayreverse(int arr[], int start, int end)
 {
     int temp;
     while (start < end)
     {
-        temp=arr[start];
-        arr[start]=arr[end];
-        arr[end]=temp;
+        temp = arr[start];
+        arr[start] = arr[end];
+        arr[end] = temp;
         start++;
         end--;
     }
 }
-int reverse_rec(int arr[],int min[],int max)
+
+int recursiveRverese(int arr[], int start, int end)
 {
-    min=max=arr[0];
-    if (min[])
+    int temp;
+    if (start>=end)
     {
-        /* code */
+        return 0;        
+    }
+    else
+    {
+        temp = arr[start];
+        arr[start] = arr[end];
+        arr[end] = temp;
+        recursiveRverese(arr, start+1, end-1);
     }
     
-
 }
 int main()
 {
-    int arr[] = {10, 20, 30,40, 50};
+    int arr[] = {10, 20, 30, 40, 50};
     int size = sizeof(arr) / sizeof(arr[0]);
-    arraytraversal(arr,size);
-    arrayreverse(arr,0,size-1);
-    arraytraversal(arr,size);
+    arraytraversal(arr, size);
+    // arrayreverse(arr,0,size-1);
+    recursiveRverese(arr, 0, size-1);
+    arraytraversal(arr, size);
 }
